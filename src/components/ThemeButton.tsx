@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { Switch } from "./ui/switch";
 import { Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
+
 export default function ThemeSwitch() {
   const { setTheme, theme, systemTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);

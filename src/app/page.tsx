@@ -1,11 +1,15 @@
 import ThemeSwitch from "@/components/ThemeButton";
-import Image from "next/image";
+
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main>
+    <main className="text-4xl flex flex-col ">
       Hello World
       <ThemeSwitch />
+      <Link href="/timetables" className="bg-red-500 w-[50%]">
+        Click me !
+      </Link>
     </main>
   );
 }
