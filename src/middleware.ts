@@ -7,7 +7,7 @@ export default function middleware(request: NextRequest) {
   return withAuth(request);
 }
 export const config = {
-  matcher: ["/timetables/:path*"],
+  matcher: ["/dashboard/:path*"],
 };
 
 //Remember to add server actions into the middleware protections - https://youtu.be/kbCzZzXTjuw - Timestamp - 21:26 - 25:18.
