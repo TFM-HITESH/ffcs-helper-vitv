@@ -1,13 +1,10 @@
 "use client";
 
-import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
-
+import { LogoutLink, useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import React from "react";
-
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 import ThemeSwitch from "./ThemeButton";
 
 const navLinks = [
@@ -25,8 +22,17 @@ const navLinks = [
   },
 ];
 
+const hiddenNavbarPaths = ["/authLogin", "/authSignup"];
+
 export default function Navbar() {
   const pathname = usePathname();
+  const { user, isAuthenticated, isLoading } = useKindeBrowserClient();
+
+
+  if (hiddenNavbarPaths.includes(pathname)) {
+    return null;
+  }
+
   return (
     <header className="flex justify-between items-center py-4 px-7 border-b">
       <Link href="/">
@@ -40,6 +46,9 @@ export default function Navbar() {
       </Link>
 
       <nav>
+        <ul className="flex gap-x-5 text-[14px]">
+          <LogoutLink>Log out</LogoutLink>
+        </ul>
         <ul className="flex gap-x-5 text-[14px]">
           <ThemeSwitch />
           {navLinks.map((link) => (
