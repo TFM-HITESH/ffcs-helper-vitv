@@ -1,8 +1,11 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
+
+// For aurora pattern
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
+
 const tailwindcssAnimate = require("tailwindcss-animate");
 
 /** @type {import('tailwindcss').Config} */
@@ -91,6 +94,8 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+
+      // For transitions on tailwindcss gradients
       backgroundSize: {
         "size-200": "200% 200%",
       },
@@ -103,17 +108,13 @@ module.exports = {
   plugins: [addVariablesForColors, tailwindcssAnimate],
 };
 
-function addVariablesForColors({
-  addBase,
-  theme,
-}: {
-  addBase: (styles: Record<string, string>) => void;
-  theme: (path: string) => any;
-}) {
+function addVariablesForColors({ addBase, theme }: any) {
   let allColors = flattenColorPalette(theme("colors"));
-  let newVars: Record<string, string> = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, String(val)])
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
 
-  addBase(newVars); // Pass newVars directly to addBase
+  addBase({
+    ":root": newVars,
+  });
 }
