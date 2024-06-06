@@ -23,7 +23,7 @@ export function SignupFormDemo() {
             </button>
           </div>
           <h2 className="text-2xl font-semibold mb-4">Sign Up</h2>
-          <p className="text-gray-400 mb-4">New to FFCSHelper VITV? <a href="/authLogin" className="text-blue-500">Log In</a></p>
+          <p className="text-gray-400 mb-4">Returning User? <a href="/authLogin" className="text-blue-500">Log In</a></p>
          
 
       <form className="my-8" onSubmit={handleSubmit}>
