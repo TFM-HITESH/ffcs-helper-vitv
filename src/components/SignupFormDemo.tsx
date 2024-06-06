@@ -17,9 +17,9 @@ export function SignupFormDemo() {
     console.log("Form submitted");
   };
   return (
-    <div className="h-screen w-full rounded-none p-4 md:p-8 shadow-input bg-white dark:bg-[#191919] border-0 border-transparent">
+    <div className="h-screen w-full rounded-none flex flex-col justify-center p-4 md:p-8 shadow-input bg-white dark:bg-[#191919] border-0 border-transparent">
       <h2 className="font-bold text-2xl text-neutral-800 dark:text-neutral-200">
-        Welcome to FFCS Hero
+        Sign Up
         <ThemeSwitch />
       </h2>
       <div className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
