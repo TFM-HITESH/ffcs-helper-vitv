@@ -1,14 +1,14 @@
 "use client";
 import React from "react";
-import { Label } from "../components/ui/label";
-import { Input } from "../components/ui/input";
-import { cn } from "@/app/utils";
+import { Label } from "./ui/label";
+import { Input } from "./ui/input";
+import { cn } from "@/lib/utils";
 import {
   IconBrandGithub,
   IconBrandGoogle,
   IconBrandOnlyfans,
 } from "@tabler/icons-react";
-import { FC } from 'react';
+import Link from "next/link";
 
 export function SignupFormDemo() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -16,80 +16,113 @@ export function SignupFormDemo() {
     console.log("Form submitted");
   };
   return (
-    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8  bg-[#191919] dark:bg-[#191919]">
-      <div className="mb-6">
-            <button className="text-left text-gray-300">
-              <span>&larr;</span> Home
-            </button>
+    <div className="max-h-screen w-full mx-auto rounded-none p-4 md:p-8 shadow-input bg-white dark:bg-[#191919] border-0 border-none">
+      <h2 className="font-bold text-2xl text-neutral-800 dark:text-neutral-200">
+        Welcome to FFCS Hero
+      </h2>
+      <div className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
+        <div className="flex flex-row mt-3">
+          <div className="">
+            Returning User ?{" "}
+            <Link href="/authLogin">
+              <span className="text-blue-500 dark:text-blue-700  font-bold hover:underline underline-offset-4 transition-all duration-150 ease-in-out">
+                Login
+              </span>
+            </Link>
           </div>
-          <h2 className="text-2xl font-semibold mb-4">Sign Up</h2>
-          <p className="text-gray-400 mb-4">Returning User? <a href="/authLogin" className="text-blue-500">Log In</a></p>
-         
+        </div>
+      </div>
 
       <form className="my-8" onSubmit={handleSubmit}>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="firstname">First name</Label>
-            <Input id="firstname" placeholder="Tyler" type="text" />
+            <Input
+              id="firstname"
+              placeholder=""
+              type="text"
+              className="rounded-[0.5rem]"
+            />
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="lastname">Last name</Label>
-            <Input id="lastname" placeholder="Durden" type="text" />
+            <Input
+              id="lastname"
+              placeholder=""
+              type="text"
+              className="rounded-[0.5rem]"
+            />
           </LabelInputContainer>
         </div>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="projectmayhem@fc.com" type="email" />
+          <Input
+            id="email"
+            placeholder=""
+            type="email"
+            className="rounded-[0.5rem]"
+          />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="password">Password</Label>
-          <Input id="password" placeholder="••••••••" type="password" />
+          <Input
+            id="password"
+            placeholder=""
+            type="password"
+            className="rounded-[0.5rem]"
+          />
         </LabelInputContainer>
-        
-
+        <LabelInputContainer className="mb-8">
+          <Label htmlFor="twitterpassword">Username</Label>
+          <Input
+            id="username"
+            placeholder=""
+            type="username"
+            className="rounded-[0.5rem]"
+          />
+        </LabelInputContainer>
         <button
-          className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
+          className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-50 dark:to-zinc-100 to-neutral-600 dark:bg-zinc-50 w-full text-white dark:text-black rounded-[0.5rem] h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset] flex flex-row justify-center items-center gap-1.5 hover:gap-3 dark:hover:gap-3 transition-all duration-100 ease-in-out"
           type="submit"
         >
-          Sign up &rarr;
+          <p>Sign up</p> <p>&rarr;</p>
           <BottomGradient />
         </button>
 
         <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
 
         <div className="flex flex-col space-y-4">
-          {/* <button
-            className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
+          <button
+            className=" relative group/btn flex space-x-2 items-center justify-center px-4 w-full text-black rounded-[0.5rem] h-10 font-medium shadow-input bg-size-200 bg-pos-0 dark:bg-pos-0 hover:bg-pos-100 dark:hover:bg-pos-100 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)] bg-gradient-to-r from-black/15 via-gray-100 to-purple-700/30 dark:bg-gradient-to-r dark:from-black dark:via-black dark:to-purple-950 transition-all duration-300 ease-in-out"
             type="submit"
           >
             <IconBrandGithub className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
             <span className="text-neutral-700 dark:text-neutral-300 text-sm">
               GitHub
             </span>
-            <BottomGradient />
-          </button> */}
+            {/* <BottomGradient /> */}
+          </button>
           <button
-            className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
+            className=" relative group/btn flex space-x-2 items-center justify-center px-4 w-full text-black rounded-[0.5rem] h-10 font-medium shadow-input bg-size-200 bg-pos-0 dark:bg-pos-0 hover:bg-pos-100 dark:hover:bg-pos-100 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)] bg-gradient-to-r from-gray-100 via-red-300 to-blue-300 dark:bg-gradient-to-r dark:from-zinc-800 dark:via-red-500 dark:to-blue-500 transition-all duration-300 ease-in-out"
             type="submit"
           >
             <IconBrandGoogle className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
             <span className="text-neutral-700 dark:text-neutral-300 text-sm">
               Google
             </span>
-            <BottomGradient />
+            {/* <BottomGradient /> */}
           </button>
-          {/* <button
-            className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-            type="submit"
-          >
-            <IconBrandOnlyfans className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
-            <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-              OnlyFans
-            </span>
-            <BottomGradient />
-          </button> */}
         </div>
       </form>
+      <div className="-mt-3 flex justify-end">
+        <Link
+          href="/"
+          className="text-left text-neutral-800 dark:text-neutral-200 text-sm hover:gap-3 gap-2 flex flex-row transition-all duration-100 ease-in-out"
+        >
+          <span>&larr;</span>{" "}
+          <p className="hover:underline underline-offset-4">Home</p>
+        </Link>
+      </div>
     </div>
   );
 }
@@ -97,8 +130,8 @@ export function SignupFormDemo() {
 const BottomGradient = () => {
   return (
     <>
-      <span className="group-hover/btn:opacity-100 block transition duration-500 opacity-0 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
-      <span className="group-hover/btn:opacity-100 blur-sm block transition duration-500 opacity-0 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
+      <span className="group-hover/btn:opacity-100 block transition duration-500 opacity-0 absolute h-[4px] w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
+      <span className="group-hover/btn:opacity-100 blur-sm block transition duration-500 opacity-0 absolute h-[4px] w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
     </>
   );
 };

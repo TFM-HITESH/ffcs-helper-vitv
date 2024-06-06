@@ -1,6 +1,9 @@
 "use client";
 
-import { LogoutLink, useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+import {
+  LogoutLink,
+  useKindeBrowserClient,
+} from "@kinde-oss/kinde-auth-nextjs";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,12 +25,12 @@ const navLinks = [
   },
 ];
 
+// Consider better implementation for this by adding separate layout.tsx in both /authLogin & /authSignup
 const hiddenNavbarPaths = ["/authLogin", "/authSignup"];
 
 export default function Navbar() {
   const pathname = usePathname();
   const { user, isAuthenticated, isLoading } = useKindeBrowserClient();
-
 
   if (hiddenNavbarPaths.includes(pathname)) {
     return null;

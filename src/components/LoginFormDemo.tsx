@@ -2,13 +2,13 @@
 import React from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/app/utils";
+import { cn } from "@/lib/utils";
 import {
   IconBrandGithub,
   IconBrandGoogle,
   IconBrandOnlyfans,
 } from "@tabler/icons-react";
-import { FC } from 'react';
+import { FC } from "react";
 
 export function LoginFormDemo() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -16,15 +16,19 @@ export function LoginFormDemo() {
     console.log("Form submitted");
   };
   return (
-    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8  bg-[#191919] dark:bg-[#191919]">
+    <div className="max-w-[30%] w-full p-4 md:p-8  bg-[#191919] dark:bg-[#191919]">
       <div className="mb-6">
-            <button className="text-left text-gray-300">
-              <span>&larr;</span> Home
-            </button>
-          </div>
-          <h2 className="text-2xl font-semibold mb-4">Log in</h2>
-          <p className="text-gray-400 mb-4">New to FFCSHelper VITV?  <a href="/authSignup" className="text-blue-500">Sign Up</a></p>
-         
+        <button className="text-left text-gray-300">
+          <span>&larr;</span> Home
+        </button>
+      </div>
+      <h2 className="text-2xl font-semibold mb-4">Log in</h2>
+      <p className="text-gray-400 mb-4">
+        New to FFCSHelper VITV?{" "}
+        <a href="/authSignup" className="text-blue-500">
+          Sign Up
+        </a>
+      </p>
 
       <form className="my-8" onSubmit={handleSubmit}>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
@@ -45,7 +49,6 @@ export function LoginFormDemo() {
           <Label htmlFor="password">Password</Label>
           <Input id="password" placeholder="••••••••" type="password" />
         </LabelInputContainer>
-        
 
         <button
           className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"

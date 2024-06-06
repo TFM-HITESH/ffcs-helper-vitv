@@ -1,17 +1,20 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
-const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette");
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
 const tailwindcssAnimate = require("tailwindcss-animate");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: "jit",
   content: [
     "./src/**/*.{ts,tsx}",
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
   ],
-  darkMode: ["class"],
+  darkMode: "class",
   prefix: "",
   theme: {
     container: {
@@ -88,15 +91,25 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      backgroundSize: {
+        "size-200": "200% 200%",
+      },
+      backgroundPosition: {
+        "pos-0": "0% 0%",
+        "pos-100": "100% 100%",
+      },
     },
   },
-  plugins: [
-    addVariablesForColors,
-    tailwindcssAnimate,
-  ],
+  plugins: [addVariablesForColors, tailwindcssAnimate],
 };
 
-function addVariablesForColors({ addBase, theme }: { addBase: (styles: Record<string, string>) => void; theme: (path: string) => any; }) {
+function addVariablesForColors({
+  addBase,
+  theme,
+}: {
+  addBase: (styles: Record<string, string>) => void;
+  theme: (path: string) => any;
+}) {
   let allColors = flattenColorPalette(theme("colors"));
   let newVars: Record<string, string> = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, String(val)])

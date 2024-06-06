@@ -1,9 +1,9 @@
-"use client"
-import React from 'react';
-import { AuroraBackground } from '@/components/ui/AuroraBackground';
-import { LoginFormDemo } from '@/components/ui/LoginFormDemo';
-import { motion } from 'framer-motion';
-import { FC } from 'react';
+"use client";
+import React from "react";
+import { AuroraBackground } from "@/components/ui/AuroraBackground";
+import { LoginFormDemo } from "@/components/LoginFormDemo";
+import { motion } from "framer-motion";
+import { FC } from "react";
 
 const Login: FC = () => {
   return (
@@ -21,15 +21,14 @@ const Login: FC = () => {
             className="relative flex flex-col gap-4 items-center justify-center px-4"
           >
             <div className="text-3xl md:text-7xl font-bold dark:text-white text-center">
-              Why should deciding your timetable be a burden ?
+              Why should deciding/creating/choosing/designing your timetable be
+              a burden ?
             </div>
             <div className="font-extralight text-base md:text-4xl dark:text-neutral-200 py-4">
               Check us out !
             </div>
-  
           </motion.div>
         </AuroraBackground>
-        
       </div>
       <LoginFormDemo />
     </div>
