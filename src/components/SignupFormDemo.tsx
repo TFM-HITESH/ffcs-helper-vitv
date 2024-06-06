@@ -9,6 +9,7 @@ import {
   IconBrandOnlyfans,
 } from "@tabler/icons-react";
 import Link from "next/link";
+import ThemeSwitch from "./ThemeButton";
 
 export function SignupFormDemo() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -16,9 +17,10 @@ export function SignupFormDemo() {
     console.log("Form submitted");
   };
   return (
-    <div className="max-h-screen w-full mx-auto rounded-none p-4 md:p-8 shadow-input bg-white dark:bg-[#191919] border-0 border-none">
+    <div className="h-screen w-full rounded-none p-4 md:p-8 shadow-input bg-white dark:bg-[#191919] border-0 border-transparent">
       <h2 className="font-bold text-2xl text-neutral-800 dark:text-neutral-200">
         Welcome to FFCS Hero
+        <ThemeSwitch />
       </h2>
       <div className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
         <div className="flex flex-row mt-3">
