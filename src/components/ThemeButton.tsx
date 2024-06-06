@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 
-import { Switch } from "./ui/switch";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, SunIcon, MoonIcon } from "lucide-react";
 import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation";
 
 export default function ThemeSwitch() {
   const { setTheme, theme, systemTheme } = useTheme();
@@ -29,17 +29,36 @@ export default function ThemeSwitch() {
     setTheme(isDark ? "dark" : "light");
   }, [isDark, setTheme]);
 
+  const loginThemeButton = ["/authLogin", "/authSignup"];
+  const pathname = usePathname();
+
+  if (loginThemeButton.includes(pathname)) {
+    return (
+      <div className="absolute top-5 right-5">
+        <button
+          className="p-1 border border-1 rounded-md dark:hover:bg-white/10 hover:bg-black/10 transition-all duration-200 ease-in-out"
+          onClick={() => {
+            setIsDark(!isDark);
+            window.localStorage.setItem("Local-theme", `${!isDark}`);
+          }}
+        >
+          {!isDark ? <SunIcon /> : <MoonIcon />}
+        </button>
+      </div>
+    );
+  }
+
   return (
-    <Switch
-      dir="ltr"
-      className="data-[state=checked]:bg-accent"
-      checked={isDark}
-      onCheckedChange={(v) => {
-        setIsDark(v);
-        window.localStorage.setItem("Local-theme", `${v}`);
-      }}
-      //   icon={isDark ? Moon : Sun}
-      //   iconclassname="w-4 h-4"
-    />
+    <div className="">
+      <button
+        className="p-1 border border-1 rounded-md dark:hover:bg-white/10 hover:bg-black/10 transition-all duration-200 ease-in-out"
+        onClick={() => {
+          setIsDark(!isDark);
+          window.localStorage.setItem("Local-theme", `${!isDark}`);
+        }}
+      >
+        {!isDark ? <SunIcon /> : <MoonIcon />}
+      </button>
+    </div>
   );
 }
