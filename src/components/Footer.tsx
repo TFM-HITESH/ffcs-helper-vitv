@@ -7,11 +7,9 @@ class Footer extends Component {
   render() {
     const current_year = new Date().getFullYear();
     return (
-      <div id="section_footer">
-        <div className='text-center py-4'>
+      <div className="fixed bottom-0    ">
           <p>Copyright © {current_year},. All Rights Reserved.</p>
         </div>
-      </div>
     );
   }
 }
