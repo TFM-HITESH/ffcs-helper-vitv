@@ -49,16 +49,13 @@ export default function Navbar() {
       </Link>
 
       <nav>
-        <ul className="flex gap-x-5 text-[14px]">
-          <LogoutLink>Log out</LogoutLink>
-        </ul>
-        <ul className="flex gap-x-5 text-[14px]">
+        <ul className="flex gap-x-5  text-[14px]">
           <ThemeSwitch />
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 className={`${
-                  pathname === link.href ? "text-zinc-900" : "text-zinc-400"
+                  pathname === link.href ? "text-zinc-400" : "text-zinc-400"
                 }`}
                 href={link.href}
               >
