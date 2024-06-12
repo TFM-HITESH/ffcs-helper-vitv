@@ -1,20 +1,24 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button"
 import Image from "next/image";
+import { Particles } from "@/components/particles";
 export default function Home() {
   return (
-    <section className="body-font">
-  <div className="container px-5 py-24 mx-auto bg-dark rounded-md">
-    <div className="flex flex-col text-center w-full mb-20">
-      <h1 className="text-2xl font-medium title-font mb-4 text-gray-900">Welcome to FFCS Time Table Manager</h1>
-      <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-lightest">Create your dream timetable with a few simple clicks!</p>
-    </div>
-    <div className="flex flex-wrap">
-      
-      
-    </div>
-    <Button className="flex mx-auto mt-16 border-0 py-2 px-8" variant="default"><a href="/authSignup">Create Your Timetable!</a></Button>
-  </div>
-</section>
+    <div className="pt-20">
+      <Particles className="absolute inset-0 -z-10"></Particles>
+                <div className="text-center px-8">
+                    <div className="mb-6">
+                        
+                    </div> 
+                    <div>
+                        <h1 className="pb-4 font-extrabold tracking-tight text-transparent text-7xl lg:text-8xl  bg-clip-text bg-gradient-to-r from-amber-400 via-red-600 to-amber-400">FFCS Planner</h1>
+                        <p className="mb-8 text-lg dark:text-zinc-300/40 font-medium" data-aos="fade-down" data-aos-delay="200">Create Your Desired Timetable within seconds!</p>
+                    </div>   
+                    <div>
+                    <Button className="flex mx-auto mt-16 border-0 py-2 px-8" variant="default"><a href="/authSignup">Create Your Timetable!</a></Button>
+                            
+                    </div>      
+                </div>
+            </div>
   );
 }
